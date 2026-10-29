@@ -99,7 +99,7 @@ def update_stock(product_id):
     print("Stock not found!")
 
 
-# product_id = current_id
+# product_id = current_i
 # name = product_description
 # price = float(price_value)
 # stock = int(quantity_value)

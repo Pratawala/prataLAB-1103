@@ -27,7 +27,7 @@ class Product:
 
 class Inventory:
     def __init__(self):
-        self.__products = []          # starts empty
+        self.__products = []         # starts empty
 
     def to_list(self):
         return [product.to_list() for product in self.__products] #converting the whole product to list for JSON
