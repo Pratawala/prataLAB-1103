@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 class Product:
     def __init__(self,product_id, name, price, stock):
@@ -10,7 +11,8 @@ class Product:
     def get_id(self):
         return self.__product_id #returns product id to exe code so idn to do name mangling 
 
-    def update_stock(self, quantity):#updating stock count of product object
+
+    def add_stock(self, quantity):
         self.__stock += quantity
 
     def update_details(self, name, price): #updating attribues of product object
@@ -22,34 +24,50 @@ class Product:
 
     def display_information(self):
         print(f"ID: {self.__product_id} | Name: {self.__name} "
-              f"| Price: {self.__price:.2f} | Stock: {self.__stock}")
+              f"| Price: {self.__price} | Stock: {self.__stock}")
 
 
 class Inventory:
-    def __init__(self):
-        self.__products = []         # starts empty
+    def __init__(self, file):
+        self.__file = file
 
-    def to_list(self):
-        return [product.to_list() for product in self.__products] #converting the whole product to list for JSON
+    def __load(self):
+        return [Product(*row) for row in self.__file.load_item()]
 
-    def add_product(self, product_id, name, price, stock): 
-        new_product = Product(product_id, name, price, stock) # calls product class -> has attributes of items defined
-        self.__products.append(new_product) #appends new product to the product list
+    def __save(self, products):
+        self.__file.save_item([p.to_list() for p in products])
+
+    def add_product(self, product_id, name, price, stock):
+        products = self.__load()
+        products.append(Product(product_id, name, price, stock))
+        self.__save(products)
 
     def search_product(self, product_id):
-        for product in self.__products:
+        for product in self.__load():
             if product.get_id() == product_id:
                 return product
         return None
 
     def display_all(self):
-        for product in self.__products:
+        products = self.__load()
+        if not products:
+            print("Inventory is empty!")
+            return
+        for product in products:
             product.display_information()
 
+    def save_product(self, updated):
+        products = self.__load()
+        for i, product in enumerate(products):
+            if product.get_id() == updated.get_id():
+                products[i] = updated
+                break
+        self.__save(products)
 
 class File:
     def __init__(self, filename="inventory.json"):
-        self.__filename = filename
+        base_dir = Path(__file__).resolve().parent #sets the creation directory to module's directory
+        self.__filename = base_dir / filename
 
     def initialise_database(self):
         try:

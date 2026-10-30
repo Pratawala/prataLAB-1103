@@ -1,8 +1,9 @@
 import json
 from modules import Product, Inventory, File
-inventory = Inventory() # creating the inventory object from the Inventory class
 file = File() #creats a file object "inventory.json"
-file.intialise_database() #creates the file if it doesnt exist 
+file.initialise_database() #creates the file if it doesnt exist 
+inventory = Inventory(file) # creating the inventory object from the Inventory class passing file 
+
 # first commit kinda nervous!
 
 def get_valid_id():
@@ -223,7 +224,6 @@ total_good_attempts = 0
 failed_id = 0
 failed_quantity = 0
 total_units = 0
-inventory = Inventory() #loads inventory object which was created after we invoked the inv class
 
 print("\n----------- MENU -----------\n1. Display All Products\n2. Add Product\n3. Update Stock\n4."
             "Search Product\n5. Save Inventory\n6. Exit\n----------------------------")
@@ -248,6 +248,7 @@ while True:
 # product2 = Product("P002", "Mouse", 25.50, 40)
 # inventory.add_product(product1) # pass the product to inventory class to store in a list
 # inventory.add_product(product2)
+# each action already saves itself
     if option == 2:
         print("add new product")
         current_id = get_valid_id()
@@ -261,9 +262,9 @@ while True:
         else:
             product.update_details(product_description, price_value)
             product.add_stock(quantity_value)
+            inventory.save_product(product)
             print("Delivery recorded successfully!")
 
-        file.save_item(inventory.to_list())
         continue
 
     if option == 3:
@@ -275,9 +276,9 @@ while True:
         if product is None:
             print("Stock not found!")
         else:
-            product.display_information()
-            product.update_stock(int(input("Input new stock quantity: ")))
-            file.save_item(inventory.to_list())
+            product.display_information() #calss display information method from class prduct
+            product.add_stock(int(input("Input new stock quantity: ")))
+            inventory.save_product(product)
             print("Stock updated successfully!")
         continue
 
@@ -293,7 +294,6 @@ while True:
         continue
 
     if option == 5:
-        file.save_item(inventory.to_list())
         print("Inventory saved successfully!")
         continue
 
