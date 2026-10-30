@@ -251,11 +251,13 @@ while True:
 # each action already saves itself
     if option == 2:
         print("add new product")
+        
         current_id = get_valid_id()
         product_description = get_valid_description()
         price_value = get_valid_price()
         quantity_value = get_valid_quantity()
         product = inventory.search_product(current_id)
+
         if product is None:
             inventory.add_product(current_id, product_description, price_value, quantity_value)
             print("Product added successfully!")
