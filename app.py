@@ -83,6 +83,21 @@ def get_valid_quantity():
             print("------Invalid input, please enter a digit greater than 0 or type 'quit' to exit------")
             #failed_attempts += 1
 
+def get_physical():
+    is_physical = input("Digital or Physical product? ").lower().strip()
+
+    if is_physical == "digital":
+        download_size = float(input("How large is your digital product? (MB): "))
+        return download_size, False
+
+    elif is_physical == "physical":
+        weight = float(input("How heavy is your product? (grams): "))
+        return weight, True
+
+    else:
+        print("INVALID input! Enter PHYSICAL or DIGITAL.")
+        return get_physical()
+
 
 def update_stock(product_id):
     for product in inventory:
@@ -250,17 +265,31 @@ while True:
 # inventory.add_product(product2)
 # each action already saves itself
     if option == 2:
+
         print("add new product")
         
         current_id = get_valid_id()
         product_description = get_valid_description()
         price_value = get_valid_price()
         quantity_value = get_valid_quantity()
+        weight_or_size, is_physical = get_physical() #unpacking [size, boolean]
+       
+        
         product = inventory.search_product(current_id)
 
-        if product is None:
-            inventory.add_product(current_id, product_description, price_value, quantity_value)
-            print("Product added successfully!")
+        if product is None and is_physical == True:
+            inventory.add_physical_product(current_id, product_description, price_value, quantity_value, weight_or_size)
+            print("PHYSICAL product added successfully!")
+            product = inventory.search_product(current_id) #search for the product after it already exist to call child method
+            product.get_fulfilment_info()
+            print(f"shipping fee: ${product.shipping_cost()}")
+
+        elif product is None and is_physical == False:
+            inventory.add_digital_product(current_id, product_description, price_value, quantity_value, weight_or_size)
+            print("digital Product added successfully!")
+            product = inventory.search_product(current_id)
+            product.get_fulfilment_info()
+
         else:
             product.update_details(product_description, price_value)
             product.add_stock(quantity_value)
