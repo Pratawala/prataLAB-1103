@@ -118,6 +118,7 @@ class Inventory:
                 product.display_information()
 
 
+
     def save_product(self, updated):
         products = self.__file.load_products()
         for i, product in enumerate(products):
