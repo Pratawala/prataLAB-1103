@@ -1,8 +1,12 @@
 import json
-from modules import Product, Inventory, File
+from product import Product
+from inventory import Inventory
+from file import File 
 file = File() #creats a file object "inventory.json"
 file.initialise_database() #creates the file if it doesnt exist 
 inventory = Inventory(file) # creating the inventory object from the Inventory class passing file 
+
+
 
 # first commit kinda nervous!
 
