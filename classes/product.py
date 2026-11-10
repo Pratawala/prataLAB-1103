@@ -2,14 +2,17 @@ import json
 from pathlib import Path
 from abc import ABC, abstractmethod
 from classes.abletoship import AbleToShip
+from classes.supplier import Supplier
 
 
 class Product(ABC):
-    def __init__(self,product_id, name, price, stock):
+    def __init__(self,product_id :str, name: str, price: float, stock: int, supplier: Supplier):
         self.__product_id = product_id
         self.__name = name
         self.__price = price
         self.__stock = stock
+        self.__supplier = supplier
+    
 
     @abstractmethod #this has to be implemented by child class in its own way
     def get_fulfilment_info():

@@ -1,27 +1,25 @@
 from classes.digitalproduct import DigitalProduct
 from classes.physicalproduct import PhysicalProduct
+from classes.product import Product
 
 class Inventory:
     def __init__(self, file):
+        self.products: list[Product] = [] #init attribute called product, type hint it as a list that should contain product object and create the list
         self.__file = file
 
-    def add_physical_product(self, product_id, name, price, stock, weight):
+    def add_product(self,product: Product):
         products = self.__file.load_products()
-        products.append(
-            PhysicalProduct(product_id, name, price, stock, weight) #creates object P product based on class P product
-            )
+        products.append(product)
         self.__file.save_products(products)
         return products
 
-    def add_digital_product(self, product_id, name, price, stock, download_size):
-        products = self.__file.load_products()
-        products.append(
-            DigitalProduct(product_id, name, price, stock, download_size) #same  but for digital
-            )
-        self.__file.save_products(products)
-        return products 
+    # def add_digital_product(self, product):
+    #     products = self.__file.load_products()
+    #     products.append(product)
+    #     self.__file.save_products(products)
+    #     return products 
 
-    def search_product(self, product_id):
+    def search_product(self, product_id: int):
         for product in self.__file.load_products():
             if product.get_id() == product_id:
                 return product
@@ -43,9 +41,7 @@ class Inventory:
             if isinstance(product, DigitalProduct):
                 product.display_information()
 
-
-
-    def save_product(self, updated):
+    def save_product(self, updated: bool):
         products = self.__file.load_products()
         for i, product in enumerate(products):
             if product.get_id() == updated.get_id():

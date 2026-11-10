@@ -3,8 +3,8 @@ from classes.product import Product
 
 
 class PhysicalProduct(Product, AbleToShip): #inheriting interfaces
-    def __init__(self, product_id, name, price, stock, weight): #inherit parents attributes, along with self attri, weight
-        super().__init__(product_id, name, price, stock) #if we dont init parents attri, attribute error will be raised if Physical product tries display info, since parent attributes wont be init
+    def __init__(self, product_id, name, price, stock, weight, supplier): #inherit parents attributes, along with self attri, weight
+        super().__init__(product_id, name, price, stock, supplier) #if we dont init parents attri, attribute error will be raised if Physical product tries display info, since parent attributes wont be init
         self.__weight = weight #new attribute added 
 
     def shipping_cost(self):
@@ -12,7 +12,8 @@ class PhysicalProduct(Product, AbleToShip): #inheriting interfaces
         return shipping_cost
     
     def to_list(self):
-        return super().to_list() + ["physical", self.__weight]
+        return (["physical"] + super().to_list() + 
+                [self.__weight, self.get_supplier().to_list()])
 
     def display_information(self):
         super().display_information()

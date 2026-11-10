@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 from classes.physicalproduct import PhysicalProduct
 from classes.digitalproduct import DigitalProduct
+from classes.supplier import Supplier
 
 
 
@@ -27,18 +28,21 @@ class File:
         products = []
         #creating Physical/Digitalproduct object according to phy/dig
         for row in data:
-            if row[4] == "physical":
-                products.append(PhysicalProduct(*row[:4], row[5]))
-
-            elif row[4] == "digital":
-                products.append(DigitalProduct(*row[:4], row[5])) #append product object, use list slicing to feed values into object attributes
+            kind, *fields = row # first item of row goes into physical/digital. everything else to fields
+            *basic , supplier_row = fields # slice basic rows from supplier row
+            supplier = Supplier(*supplier_row)  # creates supplier object
+            if kind == "physical":
+                products.append(PhysicalProduct(*basic, supplier))
+            elif kind == "digital":
+                products.append(DigitalProduct(*basic, supplier))
 
             else:
-                raise ValueError(f"Unknown product type: {row[4]}")
+                raise ValueError(f"Unknown product type: {kind}")
 
         return products
 
     def save_products(self, products):
+        rows = [p.to_list() for p in products]   # if this raises, the file is untouched
         with open(self.__filename, "w") as f:
-            json.dump([p.to_list() for p in products], f)#p to list converts each iteration from object to python list
+            json.dump(rows, f)
             #json.dump finishes the job and apend it into json

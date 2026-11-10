@@ -2,6 +2,7 @@ import json
 from classes.product import Product
 from classes.inventory import Inventory
 from classes.file import File 
+from classes.supplier import Supplier
 file = File() #creats a file object "inventory.json"
 file.initialise_database() #creates the file if it doesnt exist 
 inventory = Inventory(file) # creating the inventory object from the Inventory class passing file 
@@ -102,6 +103,13 @@ def get_physical():
         print("INVALID input! Enter PHYSICAL or DIGITAL.")
         return get_physical()
 
+
+def get_supplier_info():
+    supplier_id = input("What is supplier id?")
+    supplier_name = input("Supplier name")
+    contact_email = input("Supplier email")
+    return Supplier(supplier_id, supplier_name, contact_email)
+    
 
 def update_stock(product_id):
     for product in inventory:
@@ -277,19 +285,20 @@ while True:
         price_value = get_valid_price()
         quantity_value = get_valid_quantity()
         weight_or_size, is_physical = get_physical() #unpacking [size, boolean]
-       
-        
+        supplier = get_supplier_info()
         product = inventory.search_product(current_id)
-
+        print("DEBUG is_physical:", repr(is_physical), "| product:", repr(product))
+        print("DEBUG supplier:", repr(supplier))
+        print(product)
         if product is None and is_physical == True:
-            inventory.add_physical_product(current_id, product_description, price_value, quantity_value, weight_or_size)
+            inventory.add_product(product)
             print("PHYSICAL product added successfully!")
             product = inventory.search_product(current_id) #search for the product after it already exist to call child method
             product.get_fulfilment_info()
             print(f"shipping fee: ${product.shipping_cost()}")
 
         elif product is None and is_physical == False:
-            inventory.add_digital_product(current_id, product_description, price_value, quantity_value, weight_or_size)
+            inventory.add_product(product)
             print("digital Product added successfully!")
             product = inventory.search_product(current_id)
             product.get_fulfilment_info()
