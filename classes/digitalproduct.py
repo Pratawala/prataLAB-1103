@@ -1,4 +1,4 @@
-from product import Product 
+from classes.product import Product 
 
 class DigitalProduct(Product):
     def __init__(self, product_id, name, price, stock, download_size):

@@ -1,5 +1,5 @@
-from abletoship import AbleToShip
-from product import Product 
+from classes.abletoship import AbleToShip
+from classes.product import Product 
 
 
 class PhysicalProduct(Product, AbleToShip): #inheriting interfaces

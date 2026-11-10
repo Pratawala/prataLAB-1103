@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 from abc import ABC, abstractmethod
-from abletoship import AbleToShip
+from classes.abletoship import AbleToShip
 
 
 class Product(ABC):

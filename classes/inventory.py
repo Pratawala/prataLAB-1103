@@ -1,5 +1,5 @@
-from digitalproduct import DigitalProduct
-from physicalproduct import PhysicalProduct
+from classes.digitalproduct import DigitalProduct
+from classes.physicalproduct import PhysicalProduct
 
 class Inventory:
     def __init__(self, file):

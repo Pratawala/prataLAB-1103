@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
-from physicalproduct import PhysicalProduct
-from digitalproduct import DigitalProduct
+from classes.physicalproduct import PhysicalProduct
+from classes.digitalproduct import DigitalProduct
 
 
 
