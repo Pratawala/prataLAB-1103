@@ -1,5 +1,9 @@
 from classes.DiscountStrategy import DiscountStrategy
 
-class Nodiscount:
-    def __init__(self):
-        self.__total = total
+class Nodiscount(DiscountStrategy):
+    # no attributes to define
+
+    def apply(self, total): #no discount, do nothing
+        return total 
+
+    
