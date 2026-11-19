@@ -1,0 +1,210 @@
+commit ecdad61ec848e464a0b4ec802eb4121b6aa36d7e
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Wed Nov 11 00:00:52 2026 +0800
+
+    implemented composition classes
+
+commit 79cc7e75bc7976000e06875cd544f35ce065b96d
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Wed Nov 11 00:00:19 2026 +0800
+
+    implemented extra classes needed
+
+commit 9d6599d4ac6000e8486229513ebcfa3d568e6056
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Tue Nov 10 19:37:10 2026 +0800
+
+    cleaned up repository tree
+
+commit 84b4156327adc9fad1b325796e199cb408ed9dc9
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Thu Nov 5 16:09:29 2026 +0800
+
+    refactored classes into individual files
+
+commit 3bc8aa069d82ac9ac1ff950060e3feb5883b421b
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Mon Nov 2 00:15:13 2026 +0800
+
+    dependecies and gitignore
+
+commit ddb959fe487494afc7edf0bf903a46ac2f3ed85b
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Sun Nov 1 17:16:41 2026 +0800
+
+    added abstract class fulfilment info and shippingcost
+
+commit b2ec4d7df808af10625ded0f072ab5877f163ec5
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Sun Nov 1 17:15:45 2026 +0800
+
+    added subclasses for physical and digital product
+
+commit 872188bfcb29f120af598877a0523b5c2ab5010c
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Sat Oct 31 02:14:54 2026 +0800
+
+    cleaned up code
+
+commit 6e0e7bd6527b478f18197a0a5594d1f9d0b5ab52
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Sat Oct 31 01:57:22 2026 +0800
+
+    some bug fixing to even out OOP refactored bugs
+
+commit d713af1b81b05047c14012fb618b18b80a8538a6
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Fri Oct 30 04:01:59 2026 +0800
+
+    added file class, completed oop refactoring
+
+commit cbdab1fad10ae2f37143cf895838b59175970883
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Fri Oct 30 04:01:19 2026 +0800
+
+    added inventory class, refactored execution code for OOP
+
+commit 35b8e23f2b19af18d3be2238713a42c568cb3ed6
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Fri Oct 30 02:13:13 2026 +0800
+
+    reorganised file structure
+
+commit ca1790fbe61de3bafa08b6df6e92ae39eb837b91
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Fri Oct 30 02:12:18 2026 +0800
+
+    added modulespy created product class
+
+commit 855bb810b613077d3ddd6f774229c826c25cdcd0
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Sat Oct 3 23:38:43 2026 +0800
+
+    Final save inventory verified!
+
+commit 38696ddfa43a3a2b8218b90d5ef7149b61a12078
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Sat Oct 3 23:38:06 2026 +0800
+
+    Cretaed loadinv verified!
+
+commit 9b54c43cabc3978077a2b112dcdbb3ea90d7351e
+Author: Pratawala <Kingsleylow2013@gmail.com>
+Date:   Sat Oct 3 23:37:09 2026 +0800
+
+    Cretaed inventory with few products
+
+commit 4a0411cc7aee8806ced35210d92d606de485ea0a
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Sat Oct 3 15:11:41 2026 +0800
+
+    week5lab and docker file
+
+commit a38bfd29930e250e13967e717a4be28460f31bd8
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 25 17:48:53 2026 +0800
+
+    final save_inventory is verified
+
+commit 63964af667b3e02ce38c4725642740d0f78113df
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 25 17:48:23 2026 +0800
+
+    the list is successfully tracking history.
+
+commit d7a6502936ed038be51654339d994e7421f1810e
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 25 04:58:27 2026 +0800
+
+    finished up all 3 function
+
+commit e9b32dccf3ad248002d6ac1f5f09fe318275f128
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Thu Sep 24 18:29:57 2026 +0800
+
+    load inventory working
+
+commit d7cab662e13aa23c6c08e27827992027e609bd86
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Sat Sep 19 00:25:01 2026 +0800
+
+    added tax function and cleaned up code
+
+commit d756a9a524d7747d013499a52539b5574195e104
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 18 22:15:16 2026 +0800
+
+    refactored my code
+
+commit 210ada3ee8c220f78aa04c3c11326313319be3d8
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 18 17:13:21 2026 +0800
+
+    backupfile to add functions
+
+commit 9fc63da6d64efa1612758acbce2984d6f6c50607
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Sat Sep 12 03:00:22 2026 +0800
+
+    FINALLY DONE
+
+commit 65cfc94e7b91d6f7083aed7e07075330d0dd472d
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Sat Sep 12 02:43:07 2026 +0800
+
+    added functions running through test cases now
+
+commit 43127317415d805a4033de448fed17dd1addbf19
+Merge: cdb7d7f 3d5e4e0
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 11 16:55:02 2026 +0800
+
+    Merge branch 'main' of https://github.com/Pratawala/1103Devops
+
+commit cdb7d7f822aae2bba9fe5abb18a7314467fad67c
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 11 16:52:55 2026 +0800
+
+    commented something
+
+commit 3d5e4e0ee447926b17a5e081977f8d51f1dc0f55
+Author: Pratawala <96869075+Pratawala@users.noreply.github.com>
+Date:   Fri Sep 11 16:49:01 2026 +0800
+
+    Add initial README for module 1103
+
+commit 15e92ebc7f083c3f82a8fa05198f76527b1046b8
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 11 16:37:19 2026 +0800
+
+    added auditor py file
+
+commit 5af02e22a215f50019560028634e9e8445fadc5a
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 4 20:51:33 2026 +0800
+
+    Added some conditional formatting please check variable types before comitting thanks
+
+commit 8ac893313a822f686d39ecf370ab23bb0c8d04f7
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 4 20:46:05 2026 +0800
+
+    remove some hard coding
+
+commit 20d9beffa77d52d9063e83a76c96c29c88ac7fa5
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 4 20:41:18 2026 +0800
+
+    bought some followers
+
+commit 794635815664afac51326ca8954508e39d27745d
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 4 20:34:09 2026 +0800
+
+    added simple user metadata
+
+commit e05bb704c4b656197e35926b3a72c83e5c43d8e4
+Author: bing <kingsleylow2013@gmail.com>
+Date:   Fri Sep 4 20:28:30 2026 +0800
+
+    first post what a disaster
