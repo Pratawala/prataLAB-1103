@@ -11,3 +11,6 @@ venv/
 .idea/
 #unused folder
 /unused_lab/
+
+#lab
+lab*
