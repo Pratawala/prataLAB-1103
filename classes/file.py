@@ -1,8 +1,11 @@
-import json
+import json, csv
 from pathlib import Path
 from classes.physicalproduct import PhysicalProduct
 from classes.digitalproduct import DigitalProduct
 from classes.supplier import Supplier
+from classes.ProductFactory import ProductFactory
+from classes.inventory import Inventory
+
 
 
 
@@ -40,6 +43,31 @@ class File:
                 raise ValueError(f"Unknown product type: {kind}")
 
         return products
+
+    def csv_load_products(path: str, inventory: Inventory, supplier: Supplier) -> None:
+        try:
+            file = open(path, newline="")
+        except FileNotFoundError:
+            print(f"Products file not found: {path}")
+        else:
+            loaded = 0 
+            with file:
+                reader = csv.reader(file)
+                next (reader,None) #skip header
+                for line_number, row in enumerate( reader, start=1):
+                    try:
+                        product_type,product_id,name,price,stock_quantity = row
+                        product = ProductFactory.create(
+                            product_type, product_id, name, float(price), int(stock_quantity) , supplier
+                        )
+                        inventory.add_prodict(product)
+                        loaded += 1
+                    except ValueError:
+                        print(f"Invalid value in {line_number} : {row}, skipping!")
+            print(f"{loaded} product successfully loaded into inventory from csv.")
+        finally:
+            print("load attempt finished")
+
 
     def save_products(self, products):
         rows = [p.to_list() for p in products]   # if this raises, the file is untouched
