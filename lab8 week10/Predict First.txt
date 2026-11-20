@@ -1,0 +1,42 @@
+Predict First 
+
+Predict first: Before you run this test, write down what you expect to happen if you delete your supplier
+variable (del supplier) after creating the products. Can each Product still display its supplier
+information? Run it and check. If your prediction did not match, note why.
+
+Yes, reference to the supplier is stored on the product variable. 
+
+
+Predict first: Before step 3, write down whether you expect the Product to still work after it is removed
+from Inventory A, and why. Then check
+
+Yes, it is an aggregation relationship, product keeps its own attributes and references
+
+
+Predict first: If you add the same Product to two different Orders, how many OrderLine objects and how
+many Product objects will exist? Write your answer down, then check it (for example, compare objects
+using is or id()).
+
+1 product object will exist with 2 orderline object
+
+
+Diagnose: A teammate proposes this DigitalProduct method. The program runs until Inventory calls
+update_stock() on a digital product.
+
+class DigitalProduct(Product):
+	def update_stock(self, quantity: int) -> None:
+		raise NotImplementedError("Digital products have no stock")
+
+Does this violate LSP? What would you change: the subclass, the parent class (Product), or the
+inheritance relationship? Write 2–3 sentences explaining your choice.
+
+Yes, parent class product already has its own update stock method. Defining this method in digital product will 
+overwrite inheritance from parent class, furthermore, parent class update_stock is expecting values of the new stock, not
+a "none" value.
+
+Predict first: Before running your test, write down what each product will print for get_fulfilment_info().
+Then compare with the actual output:
+
+Physical product and digital product will print its own message as get_fulfilment_info() interface is defined separately 
+in digital/physical product
+
